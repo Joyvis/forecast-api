@@ -1,10 +1,18 @@
 class ForecastsController < ApplicationController
-  # BASE_URL/api/v1/forecasts
+  rescue_from Forecasts::InvalidParamsError, with: :render_error
+
   def index
-    if params[:zipcode].present? || params[:address].present?
-      render json: {}, status: :ok
-    else
-      render status: :bad_request
-    end
+    result = Forecasts::RetrieveService.new(
+      zipcode: params[:zipcode],
+      address: params[:address]
+    ).call
+
+    render json: result, status: :ok
+  end
+
+  private
+
+  def render_error
+    render status: :bad_request
   end
 end
