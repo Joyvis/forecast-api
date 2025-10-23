@@ -7,8 +7,12 @@ module Forecasts
     end
   end
 
+  class LocationNotFoundError < StandardError; end
+
   class LocationsRepository
     def find_by_zipcode(zipcode:)
+      raise LocationNotFoundError unless zipcode
+
       LocationEntity.new(zipcode: zipcode)
     end
   end

@@ -10,6 +10,19 @@ RSpec.describe Forecasts::LocationsRepository do
       it 'returns an instance of location entity' do
         is_expected.to be_a Forecasts::LocationEntity
       end
+
+      it 'ensures location entity contract' do
+        # TODO: programatically improve testability with a factory
+        expect(subject.zipcode).to eq zipcode
+      end
+    end
+
+    context 'when zipcode is missing' do
+      let(:zipcode) { nil }
+
+      it 'returns an instance of location entity' do
+        expect { subject }.to raise_error Forecasts::LocationNotFoundError
+      end
     end
   end
 
