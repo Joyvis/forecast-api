@@ -1,9 +1,14 @@
 module Forecasts
   class LocationEntity
-    attr_reader :zipcode
+    attr_reader :zipcode, :address, :forecast
 
-    def initialize(zipcode:)
+    def initialize(zipcode:, address:)
       @zipcode = zipcode
+      @address = address
+    end
+
+    def forecast=(forecast)
+      @forecast = forecast
     end
   end
 
@@ -13,7 +18,7 @@ module Forecasts
     def find_by_zipcode(zipcode:)
       raise LocationNotFoundError unless zipcode
 
-      LocationEntity.new(zipcode: zipcode)
+      LocationEntity.new(zipcode: zipcode, address: zipcode)
     end
   end
 end

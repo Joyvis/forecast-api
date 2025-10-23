@@ -1,9 +1,11 @@
 class ForecastsController < ApplicationController
   rescue_from Forecasts::InvalidParamsError, with: :render_error
+  rescue_from Forecasts::LocationNotFoundError, with: :render_error
 
   def index
-    # locations_repo = receive a zipcode or an address and return complementary info and coordinates
+    locations_repo = Forecasts::LocationsRepository.new
     result = Forecasts::RetrieveService.new(
+      locations_repo: locations_repo,
       zipcode: params[:zipcode],
       address: params[:address]
     ).call

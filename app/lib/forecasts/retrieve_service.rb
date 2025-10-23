@@ -14,6 +14,7 @@ module Forecasts
     def call
       raise InvalidParamsError if @zipcode.nil? && @address.nil?
 
+      return locations_repo.find_by_zipcode(zipcode: @zipcode) if locations_repo && @zipcode
 
       {
         temperature: 12

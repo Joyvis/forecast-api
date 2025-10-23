@@ -14,6 +14,7 @@ RSpec.describe Forecasts::LocationsRepository do
       it 'ensures location entity contract' do
         # TODO: programatically improve testability with a factory
         expect(subject.zipcode).to eq zipcode
+        expect(subject.address).to eq zipcode
       end
     end
 
