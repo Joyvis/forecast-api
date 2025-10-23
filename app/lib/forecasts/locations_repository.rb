@@ -20,5 +20,11 @@ module Forecasts
 
       LocationEntity.new(zipcode: zipcode, address: zipcode)
     end
+
+    def find_by_address(address:)
+      raise LocationNotFoundError unless address
+
+      LocationEntity.new(zipcode: address, address: address)
+    end
   end
 end
