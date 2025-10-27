@@ -11,6 +11,7 @@ module Forecasts
       @address = address
     end
 
+    # TODO: missing aggregate location entity with forecast entity
     def call
       raise InvalidParamsError if @zipcode.nil? && @address.nil?
 
