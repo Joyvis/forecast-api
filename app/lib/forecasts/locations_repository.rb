@@ -17,26 +17,34 @@ module Forecasts
   class LocationNotFoundError < StandardError; end
 
   class LocationsRepository
-    # attr_reader :locations_api_client
-    #
-    # def initialize(locations_api_client:)
-    #   @locations_api_client = locations_api_client
-    # end
+    attr_reader :locations_api_client
+
+    def initialize(locations_api_client:)
+      @locations_api_client = locations_api_client
+    end
 
     def find_by_zipcode(zipcode:)
       raise LocationNotFoundError unless zipcode
 
-      # TODO: get latitude and longitude from external API
-      # LocationsApiClient.fetch(address: zipcode)
-      # returns: Object#{ longitude: 0, latitude: 0 }
-      # locations_api_client.fetch(address: zipcode)
-      LocationEntity.new(zipcode: zipcode, address: zipcode, longitude: 0, latitude: 0)
+      fetch_location(address: zipcode)
     end
 
     def find_by_address(address:)
       raise LocationNotFoundError unless address
 
-      LocationEntity.new(zipcode: address, address: address, longitude: 0, latitude: 0)
+      fetch_location(address: address)
+    end
+
+    private
+
+    def fetch_location(address:)
+      location = locations_api_client.fetch(address: address)
+      LocationEntity.new(
+        zipcode: location.zipcode,
+        address: location.address,
+        longitude: location.longitude,
+        latitude: location.latitude
+      )
     end
   end
 end

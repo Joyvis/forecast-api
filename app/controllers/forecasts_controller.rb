@@ -1,10 +1,10 @@
 class ForecastsController < ApplicationController
-  rescue_from Forecasts::InvalidParamsError, with: :render_error
-  rescue_from Forecasts::LocationNotFoundError, with: :render_error
+  # rescue_from Forecasts::InvalidParamsError, with: :render_error
+  # rescue_from ::Forecasts::LocationNotFoundError, with: :render_error
 
   # TODO: refact this method
   def index
-    locations_repo = Forecasts::LocationsRepository.new
+    locations_repo = Forecasts::LocationsRepository.new(locations_api_client: LocationsApiClient)
     forecasts_repo = Forecasts::ForecastsRepository.new
 
     result = Forecasts::RetrieveService.new(
@@ -13,6 +13,11 @@ class ForecastsController < ApplicationController
     ).call(zipcode: params[:zipcode], address: params[:address])
 
     render json: result, status: :ok
+  # TODO: implement rescue_from
+  rescue Forecasts::InvalidParamsError
+    render_error
+  rescue Forecasts::LocationNotFoundError
+    render_error
   end
 
   private
