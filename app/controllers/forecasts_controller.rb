@@ -5,7 +5,7 @@ class ForecastsController < ApplicationController
   # TODO: refact this method
   def index
     locations_repo = Forecasts::LocationsRepository.new(locations_api_client: LocationsApiClient)
-    forecasts_repo = Forecasts::ForecastsRepository.new
+    forecasts_repo = Forecasts::ForecastsRepository.new(forecasts_api_client: ForecastsApiClient)
 
     result = Forecasts::RetrieveService.new(
       locations_repo: locations_repo,
