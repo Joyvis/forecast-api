@@ -4,20 +4,33 @@ module Forecasts
   class RetrieveService
     attr_reader :locations_repo, :forecasts_repo
 
-    def initialize(locations_repo: nil, forecasts_repo: nil, zipcode: nil, address: nil)
+    def initialize(locations_repo:, forecasts_repo:)
       @locations_repo = locations_repo
       @forecasts_repo = forecasts_repo
-      @zipcode = zipcode
-      @address = address
     end
 
-    # TODO: missing aggregate location entity with forecast entity
-    def call
-      raise InvalidParamsError if @zipcode.nil? && @address.nil?
+    def call(zipcode: nil, address: nil)
+      location = fetch_location(zipcode: zipcode, address: address)
+      location.forecast = forecast(location: location)
+      location
+    end
 
-      return locations_repo.find_by_zipcode(zipcode: @zipcode) if @zipcode
+    private
 
-      locations_repo.find_by_address(address: @address)
+    def forecast(location:)
+      forecasts_repo
+        .find_by_coordinates(
+          latitude: location.latitude,
+          longitude: location.longitude
+        )
+    end
+
+    def fetch_location(zipcode:, address:)
+      raise InvalidParamsError if zipcode.nil? && address.nil?
+
+      return locations_repo.find_by_zipcode(zipcode: zipcode) if zipcode
+
+      locations_repo.find_by_address(address: address)
     end
   end
 end
