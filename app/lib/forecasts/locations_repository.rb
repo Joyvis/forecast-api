@@ -38,13 +38,15 @@ module Forecasts
     private
 
     def fetch_location(address:)
-      location = locations_api_client.fetch(address: address)
-      LocationEntity.new(
-        zipcode: location.zipcode,
-        address: location.address,
-        longitude: location.longitude,
-        latitude: location.latitude
-      )
+      locations = locations_api_client.fetch(address: address)
+      locations.map do |location|
+        LocationEntity.new(
+          zipcode: location.zipcode,
+          address: location.address,
+          longitude: location.longitude,
+          latitude: location.latitude
+        )
+      end
     end
   end
 end

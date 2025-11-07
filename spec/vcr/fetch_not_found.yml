@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://geocode.maps.co/search?api_key=69064e708e757160819707mts747e8c&q=nao%20encontrada
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - geocode.maps.co
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Nov 2025 18:08:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - cloudflare
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Access-Control-Allow-Origin:
+      - "*"
+      Last-Modified:
+      - Fri, 07 Nov 2025 18:08:13 GMT
+      Cf-Cache-Status:
+      - MISS
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=veWwNgBM9GUW%2BCyZ0XKqik%2FNQ%2BqucUq3ysKIMx5vQCB%2FtXYTohRsDIrVTahQV6IKSYWpi6LOrjpmJjVYaPN35ucA6CTujk1pNctX%2F3gO"}]}'
+      Vary:
+      - accept-encoding
+      Cf-Ray:
+      - 99aec652c9d3aeb1-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: "[]"
+  recorded_at: Fri, 07 Nov 2025 18:08:13 GMT
+recorded_with: VCR 6.3.1

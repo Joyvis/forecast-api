@@ -10,9 +10,11 @@ module Forecasts
     end
 
     def call(zipcode: nil, address: nil)
-      location = fetch_location(zipcode: zipcode, address: address)
-      location.forecast = forecast(location: location)
-      location
+      locations = fetch_locations(zipcode: zipcode, address: address)
+      locations.map do |location|
+        location.forecast = forecast(location: location)
+        location
+      end
     end
 
     private
@@ -25,7 +27,7 @@ module Forecasts
         )
     end
 
-    def fetch_location(zipcode:, address:)
+    def fetch_locations(zipcode:, address:)
       raise InvalidParamsError if zipcode.nil? && address.nil?
 
       return locations_repo.find_by_zipcode(zipcode: zipcode) if zipcode

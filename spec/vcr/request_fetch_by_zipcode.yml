@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://geocode.maps.co/search?api_key=69064e708e757160819707mts747e8c&q=11310-185
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - geocode.maps.co
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Nov 2025 18:18:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - cloudflare
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Access-Control-Allow-Origin:
+      - "*"
+      Last-Modified:
+      - Fri, 07 Nov 2025 17:46:18 GMT
+      Cf-Cache-Status:
+      - HIT
+      Age:
+      - '1936'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=PXigEDiBt%2BLTk%2BGc%2FKO6gwv5Vx5acdDuL2yHaTQHqTBHoWfcv4vnUENoKB0mLVuWYupwV%2B1Gp381uO7Z8EOl2Cl74Df%2B%2Fg%2FImcPn6Z9q"}]}'
+      Vary:
+      - accept-encoding
+      Cf-Ray:
+      - 99aed57c0ec46273-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjM2ODM0MDE4NCwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJsYXQiOiItMjMuOTY5NTkzNiIsImxvbiI6Ii00Ni4zOTQ0MDU1IiwiY2xhc3MiOiJwbGFjZSIsInR5cGUiOiJwb3N0Y29kZSIsInBsYWNlX3JhbmsiOjI1LCJpbXBvcnRhbmNlIjowLjA2NjY3NjY2NjY2NjY2NjY2LCJhZGRyZXNzdHlwZSI6InBvc3Rjb2RlIiwibmFtZSI6IjExMzEwLTE4NSIsImRpc3BsYXlfbmFtZSI6IjExMzEwLTE4NSwgU8OjbyBWaWNlbnRlLCBSZWdpw6NvIEltZWRpYXRhIGRlIFNhbnRvcywgUmVnacOjbyBNZXRyb3BvbGl0YW5hIGRhIEJhaXhhZGEgU2FudGlzdGEsIFJlZ2nDo28gR2VvZ3LDoWZpY2EgSW50ZXJtZWRpw6FyaWEgZGUgU8OjbyBQYXVsbywgU8OjbyBQYXVsbywgUmVnacOjbyBTdWRlc3RlLCBCcmFzaWwiLCJhZGRyZXNzIjp7InBvc3Rjb2RlIjoiMTEzMTAtMTg1IiwiY2l0eV9kaXN0cmljdCI6IlPDo28gVmljZW50ZSIsImNpdHkiOiJTw6NvIFZpY2VudGUiLCJtdW5pY2lwYWxpdHkiOiJSZWdpw6NvIEltZWRpYXRhIGRlIFNhbnRvcyIsImNvdW50eSI6IlJlZ2nDo28gTWV0cm9wb2xpdGFuYSBkYSBCYWl4YWRhIFNhbnRpc3RhIiwic3RhdGVfZGlzdHJpY3QiOiJSZWdpw6NvIEdlb2dyw6FmaWNhIEludGVybWVkacOhcmlhIGRlIFPDo28gUGF1bG8iLCJzdGF0ZSI6IlPDo28gUGF1bG8iLCJJU08zMTY2LTItbHZsNCI6IkJSLVNQIiwicmVnaW9uIjoiUmVnacOjbyBTdWRlc3RlIiwiY291bnRyeSI6IkJyYXNpbCIsImNvdW50cnlfY29kZSI6ImJyIn0sImV4dHJhdGFncyI6bnVsbCwibmFtZWRldGFpbHMiOnsicmVmIjogIjExMzEwLTE4NSJ9LCJib3VuZGluZ2JveCI6WyItMjMuOTcxNTkzNiIsIi0yMy45Njc1OTM2IiwiLTQ2LjM5NjQwNTUiLCItNDYuMzkyNDA1NSJdfV0=
+  recorded_at: Fri, 07 Nov 2025 18:18:34 GMT
+recorded_with: VCR 6.3.1
