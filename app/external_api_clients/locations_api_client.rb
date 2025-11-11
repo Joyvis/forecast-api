@@ -5,9 +5,13 @@ class LocationsApiClient < BaseApiClient
   BASE_URL = 'https://geocode.maps.co'.freeze
   API_KEY = '69064e708e757160819707mts747e8c'.freeze
 
-  def fetch(address:)
-    address = CGI.escape(address)
-    response = get("#{BASE_URL}/search?q=#{address}&api_key=#{API_KEY}")
+  def fetch(address:, force: false)
+    raise LocationNotFoundError unless address
+
+    encoded_address = CGI.escape(address)
+    response = Rails.cache.fetch("locations/#{normalize_address(address)}", expires_in: 30.minutes, force: force) do
+      get("#{BASE_URL}/search?q=#{encoded_address}&api_key=#{API_KEY}")
+    end
 
     response.map do |record|
       Struct
@@ -16,10 +20,19 @@ class LocationsApiClient < BaseApiClient
     end
   end
 
-  def self.fetch(address:)
-    # TODO: instance method is not validating presence
-    raise LocationNotFoundError unless address
+  def self.fetch(address:, force: false)
+    new.fetch(address: address, force: force)
+  end
 
-    new.fetch(address: address)
+  private
+
+  def normalize_address(raw)
+    text = raw.to_s.downcase
+    text = I18n.transliterate(text)
+
+    text.gsub!(/[.,;:#\-]/, ' ')
+    text.gsub!(/\s+\d+\b/, '')
+    text.gsub!(/\s+/, ' ')
+    text.strip
   end
 end
