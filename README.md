@@ -7,5 +7,5 @@
 2.2 define cache key
 2.3 test ttl
 3. Setup .env
-4. Refact tests
+4. Refact tests/classes
 

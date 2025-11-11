@@ -4,10 +4,12 @@ class ForecastsApiClient < BaseApiClient
   BASE_URL = 'https://weather.googleapis.com/v1'.freeze
   API_KEY = 'AIzaSyCzpoodrZZOAFbMq4-Lj2CgGeRxCZZvO0I'.freeze
 
-  def fetch(longitude:, latitude:)
+  def fetch(longitude:, latitude:, force: false)
     raise ForecastNotFoundError unless longitude.present? && latitude.present?
 
-    forecast = get("#{BASE_URL}/currentConditions:lookup?key=#{API_KEY}&location.latitude=#{latitude}&location.longitude=#{longitude}")
+    forecast = Rails.cache.fetch(cache_key(longitude: longitude, latitude: latitude), expires_in: 30.minutes, force: force) do
+      get("#{BASE_URL}/currentConditions:lookup?key=#{API_KEY}&location.latitude=#{latitude}&location.longitude=#{longitude}")
+    end
 
     raise ForecastNotFoundError if forecast['error'].present?
 
@@ -23,5 +25,15 @@ class ForecastsApiClient < BaseApiClient
 
   def self.fetch(longitude:, latitude:)
     new.fetch(longitude: longitude, latitude: latitude)
+  end
+
+  private
+
+  def cache_key(longitude:, latitude:)
+    resolution = 0.05
+    long_grid = (longitude.to_f / resolution).round * resolution
+    lat_grid = (latitude.to_f / resolution).round * resolution
+
+    "forecast/#{long_grid},#{lat_grid}"
   end
 end
