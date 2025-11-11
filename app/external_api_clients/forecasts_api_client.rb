@@ -1,8 +1,8 @@
 class ForecastsApiClient < BaseApiClient
   class ForecastNotFoundError < StandardError; end
 
-  BASE_URL = 'https://weather.googleapis.com/v1'.freeze
-  API_KEY = 'AIzaSyCzpoodrZZOAFbMq4-Lj2CgGeRxCZZvO0I'.freeze
+  BASE_URL = ENV.fetch('FORECASTS_API_BASE_URL').freeze
+  API_KEY = ENV.fetch('FORECASTS_API_KEY').freeze
 
   def fetch(longitude:, latitude:, force: false)
     raise ForecastNotFoundError unless longitude.present? && latitude.present?

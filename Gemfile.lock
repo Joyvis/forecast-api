@@ -331,6 +331,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  dotenv
   kamal
   pry-byebug
   puma (>= 5.0)

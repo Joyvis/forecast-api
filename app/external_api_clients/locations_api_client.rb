@@ -2,8 +2,8 @@ class LocationsApiClient < BaseApiClient
   class LocationNotFoundError < StandardError; end
 
   # TODO: Setup .env
-  BASE_URL = 'https://geocode.maps.co'.freeze
-  API_KEY = '69064e708e757160819707mts747e8c'.freeze
+  BASE_URL = ENV.fetch('LOCATIONS_API_BASE_URL').freeze
+  API_KEY = ENV.fetch('LOCATIONS_API_KEY').freeze
 
   def fetch(address:, force: false)
     raise LocationNotFoundError unless address
