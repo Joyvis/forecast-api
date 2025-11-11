@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Forecasts::LocationsRepository do
-  let(:location_api_mock) { instance_double(LocationsApiClient, fetch: [double(zipcode: '12345', address: 'foobar', longitude: 0, latitude: 1)]) }
+  let(:location_api_mock) { instance_double(LocationsApiClient, fetch: [ double(zipcode: '12345', address: 'foobar', longitude: 0, latitude: 1) ]) }
   let(:locations_repo) { described_class.new(locations_api_client: location_api_mock) }
 
   describe '#find_by_zipcode' do

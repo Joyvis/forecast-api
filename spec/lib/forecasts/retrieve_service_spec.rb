@@ -8,7 +8,7 @@ RSpec.describe Forecasts::RetrieveService do
       Forecasts::ForecastEntity.new(min_temp: 0, max_temp: 0, current_temp: 0)
     end
     let(:locations) do
-      [Forecasts::LocationEntity.new(zipcode: zipcode, address: address, longitude: 0, latitude: 0)]
+      [ Forecasts::LocationEntity.new(zipcode: zipcode, address: address, longitude: 0, latitude: 0) ]
     end
 
     let(:locations_repo) do

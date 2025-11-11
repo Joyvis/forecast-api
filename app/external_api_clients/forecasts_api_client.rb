@@ -1,14 +1,14 @@
 class ForecastsApiClient < BaseApiClient
   class ForecastNotFoundError < StandardError; end
 
-  BASE_URL = ENV.fetch('FORECASTS_API_BASE_URL').freeze
-  API_KEY = ENV.fetch('FORECASTS_API_KEY').freeze
+  BASE_URL = ENV.fetch("FORECASTS_API_BASE_URL").freeze
+  API_KEY = ENV.fetch("FORECASTS_API_KEY").freeze
 
   def fetch(longitude:, latitude:, force: false)
     raise ForecastNotFoundError unless longitude.present? && latitude.present?
 
     forecast = fetch_forecast(longitude:, latitude:, force:)
-    raise ForecastNotFoundError if forecast['error'].present?
+    raise ForecastNotFoundError if forecast["error"].present?
 
     serialize_forecast(forecast)
   end
@@ -20,13 +20,13 @@ class ForecastsApiClient < BaseApiClient
   private
 
   def serialize_forecast(forecast)
-    current_conditions = forecast['currentConditionsHistory']
+    current_conditions = forecast["currentConditionsHistory"]
     Struct
       .new(:max_temp, :min_temp, :current_temp)
       .new(
-        current_conditions['maxTemperature']['degrees'],
-        current_conditions['minTemperature']['degrees'],
-        forecast['temperature']['degrees']
+        current_conditions["maxTemperature"]["degrees"],
+        current_conditions["minTemperature"]["degrees"],
+        forecast["temperature"]["degrees"]
       )
   end
 

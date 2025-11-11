@@ -2,8 +2,8 @@ class LocationsApiClient < BaseApiClient
   class LocationNotFoundError < StandardError; end
 
   # TODO: Setup .env
-  BASE_URL = ENV.fetch('LOCATIONS_API_BASE_URL').freeze
-  API_KEY = ENV.fetch('LOCATIONS_API_KEY').freeze
+  BASE_URL = ENV.fetch("LOCATIONS_API_BASE_URL").freeze
+  API_KEY = ENV.fetch("LOCATIONS_API_KEY").freeze
 
   def fetch(address:, force: false)
     raise LocationNotFoundError unless address
@@ -23,10 +23,10 @@ class LocationsApiClient < BaseApiClient
       Struct
         .new(:longitude, :latitude, :address, :zipcode)
         .new(
-          record['lon'],
-          record['lat'],
-          record['display_name'],
-          record['address']['postcode']
+          record["lon"],
+          record["lat"],
+          record["display_name"],
+          record["address"]["postcode"]
         )
     end
   end
@@ -42,9 +42,9 @@ class LocationsApiClient < BaseApiClient
     text = raw.to_s.downcase
     text = I18n.transliterate(text)
 
-    text.gsub!(/[.,;:#\-]/, ' ')
-    text.gsub!(/\s+\d+\b/, '')
-    text.gsub!(/\s+/, ' ')
+    text.gsub!(/[.,;:#\-]/, " ")
+    text.gsub!(/\s+\d+\b/, "")
+    text.gsub!(/\s+/, " ")
     text.strip
   end
 end

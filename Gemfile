@@ -32,7 +32,7 @@ group :development, :test do
   # gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "pry-byebug"
 
-  gem 'dotenv'
+  gem "dotenv"
 
   gem "rspec-rails"
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
