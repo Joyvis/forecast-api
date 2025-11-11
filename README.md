@@ -1,5 +1,5 @@
 # Forecast API
-
+o
 ## Peding Tasks
 1. Implement forecast API call - done
 2. Create a strategy for caching data properly
