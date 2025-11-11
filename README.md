@@ -1,24 +1,8 @@
-# README
+# Forecast API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Peding Tasks
+1. Implement forecast API call - done
+2. Create a strategy for caching data properly
+3. Setup .env
+4. Refact tests
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

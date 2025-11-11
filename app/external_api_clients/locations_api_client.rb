@@ -17,6 +17,7 @@ class LocationsApiClient < BaseApiClient
   end
 
   def self.fetch(address:)
+    # TODO: instance method is not validating presence
     raise LocationNotFoundError unless address
 
     new.fetch(address: address)

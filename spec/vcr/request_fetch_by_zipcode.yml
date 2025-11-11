@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Nov 2025 18:18:34 GMT
+      - Tue, 11 Nov 2025 14:56:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,22 +35,162 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Last-Modified:
-      - Fri, 07 Nov 2025 17:46:18 GMT
+      - Tue, 11 Nov 2025 14:56:21 GMT
       Cf-Cache-Status:
-      - HIT
-      Age:
-      - '1936'
+      - MISS
       Report-To:
-      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=PXigEDiBt%2BLTk%2BGc%2FKO6gwv5Vx5acdDuL2yHaTQHqTBHoWfcv4vnUENoKB0mLVuWYupwV%2B1Gp381uO7Z8EOl2Cl74Df%2B%2Fg%2FImcPn6Z9q"}]}'
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=z1cR7iqjQHxNKvK%2BEeswlkDwgrJ8QUP8xv0pN%2BHLDR7yFiFGg0%2Fc05WHe8hdfqfb1osLP8GgYVi%2BRWd3cueuScsv6vIDovqRxbg4lpvE3tWOJOAIGkGoey4%2B"}]}'
       Vary:
       - accept-encoding
       Cf-Ray:
-      - 99aed57c0ec46273-GRU
+      - 99cea2c3dcc9f19d-GRU
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         W3sicGxhY2VfaWQiOjM2ODM0MDE4NCwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJsYXQiOiItMjMuOTY5NTkzNiIsImxvbiI6Ii00Ni4zOTQ0MDU1IiwiY2xhc3MiOiJwbGFjZSIsInR5cGUiOiJwb3N0Y29kZSIsInBsYWNlX3JhbmsiOjI1LCJpbXBvcnRhbmNlIjowLjA2NjY3NjY2NjY2NjY2NjY2LCJhZGRyZXNzdHlwZSI6InBvc3Rjb2RlIiwibmFtZSI6IjExMzEwLTE4NSIsImRpc3BsYXlfbmFtZSI6IjExMzEwLTE4NSwgU8OjbyBWaWNlbnRlLCBSZWdpw6NvIEltZWRpYXRhIGRlIFNhbnRvcywgUmVnacOjbyBNZXRyb3BvbGl0YW5hIGRhIEJhaXhhZGEgU2FudGlzdGEsIFJlZ2nDo28gR2VvZ3LDoWZpY2EgSW50ZXJtZWRpw6FyaWEgZGUgU8OjbyBQYXVsbywgU8OjbyBQYXVsbywgUmVnacOjbyBTdWRlc3RlLCBCcmFzaWwiLCJhZGRyZXNzIjp7InBvc3Rjb2RlIjoiMTEzMTAtMTg1IiwiY2l0eV9kaXN0cmljdCI6IlPDo28gVmljZW50ZSIsImNpdHkiOiJTw6NvIFZpY2VudGUiLCJtdW5pY2lwYWxpdHkiOiJSZWdpw6NvIEltZWRpYXRhIGRlIFNhbnRvcyIsImNvdW50eSI6IlJlZ2nDo28gTWV0cm9wb2xpdGFuYSBkYSBCYWl4YWRhIFNhbnRpc3RhIiwic3RhdGVfZGlzdHJpY3QiOiJSZWdpw6NvIEdlb2dyw6FmaWNhIEludGVybWVkacOhcmlhIGRlIFPDo28gUGF1bG8iLCJzdGF0ZSI6IlPDo28gUGF1bG8iLCJJU08zMTY2LTItbHZsNCI6IkJSLVNQIiwicmVnaW9uIjoiUmVnacOjbyBTdWRlc3RlIiwiY291bnRyeSI6IkJyYXNpbCIsImNvdW50cnlfY29kZSI6ImJyIn0sImV4dHJhdGFncyI6bnVsbCwibmFtZWRldGFpbHMiOnsicmVmIjogIjExMzEwLTE4NSJ9LCJib3VuZGluZ2JveCI6WyItMjMuOTcxNTkzNiIsIi0yMy45Njc1OTM2IiwiLTQ2LjM5NjQwNTUiLCItNDYuMzkyNDA1NSJdfV0=
-  recorded_at: Fri, 07 Nov 2025 18:18:34 GMT
+  recorded_at: Tue, 11 Nov 2025 14:56:21 GMT
+- request:
+    method: get
+    uri: https://weather.googleapis.com/v1/currentConditions:lookup?key=AIzaSyCzpoodrZZOAFbMq4-Lj2CgGeRxCZZvO0I&location.latitude=-23.9695936&location.longitude=-46.3944055
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - weather.googleapis.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 11 Nov 2025 14:56:22 GMT
+      Server:
+      - ESF
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=750
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "currentTime": "2025-11-11T14:56:22.035904373Z",
+          "timeZone": {
+            "id": "America/Sao_Paulo"
+          },
+          "isDaytime": true,
+          "weatherCondition": {
+            "iconBaseUri": "https://maps.gstatic.com/weather/v1/sunny",
+            "description": {
+              "text": "Sunny",
+              "languageCode": "en"
+            },
+            "type": "CLEAR"
+          },
+          "temperature": {
+            "degrees": 22.8,
+            "unit": "CELSIUS"
+          },
+          "feelsLikeTemperature": {
+            "degrees": 24.8,
+            "unit": "CELSIUS"
+          },
+          "dewPoint": {
+            "degrees": 13.9,
+            "unit": "CELSIUS"
+          },
+          "heatIndex": {
+            "degrees": 24.8,
+            "unit": "CELSIUS"
+          },
+          "windChill": {
+            "degrees": 22.8,
+            "unit": "CELSIUS"
+          },
+          "relativeHumidity": 59,
+          "uvIndex": 10,
+          "precipitation": {
+            "probability": {
+              "percent": 0,
+              "type": "RAIN"
+            },
+            "snowQpf": {
+              "quantity": 0,
+              "unit": "MILLIMETERS"
+            },
+            "qpf": {
+              "quantity": 0,
+              "unit": "MILLIMETERS"
+            }
+          },
+          "thunderstormProbability": 0,
+          "airPressure": {
+            "meanSeaLevelMillibars": 1021
+          },
+          "wind": {
+            "direction": {
+              "degrees": 113,
+              "cardinal": "EAST_SOUTHEAST"
+            },
+            "speed": {
+              "value": 13,
+              "unit": "KILOMETERS_PER_HOUR"
+            },
+            "gust": {
+              "value": 24,
+              "unit": "KILOMETERS_PER_HOUR"
+            }
+          },
+          "visibility": {
+            "distance": 16,
+            "unit": "KILOMETERS"
+          },
+          "cloudCover": 2,
+          "currentConditionsHistory": {
+            "temperatureChange": {
+              "degrees": 0.6,
+              "unit": "CELSIUS"
+            },
+            "maxTemperature": {
+              "degrees": 23.1,
+              "unit": "CELSIUS"
+            },
+            "minTemperature": {
+              "degrees": 18,
+              "unit": "CELSIUS"
+            },
+            "snowQpf": {
+              "quantity": 0,
+              "unit": "MILLIMETERS"
+            },
+            "qpf": {
+              "quantity": 0.0763,
+              "unit": "MILLIMETERS"
+            }
+          }
+        }
+  recorded_at: Tue, 11 Nov 2025 14:56:22 GMT
 recorded_with: VCR 6.3.1

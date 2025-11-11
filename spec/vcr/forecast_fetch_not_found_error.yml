@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://weather.googleapis.com/v1/currentConditions:lookup?key=AIzaSyCzpoodrZZOAFbMq4-Lj2CgGeRxCZZvO0I&location.latitude=&location.longitude=-49.280580736137814
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - weather.googleapis.com
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 11 Nov 2025 14:48:27 GMT
+      Server:
+      - ESF
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=721
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "Invalid value at 'location.latitude' (TYPE_DOUBLE), \"\"",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.BadRequest",
+                "fieldViolations": [
+                  {
+                    "field": "location.latitude",
+                    "description": "Invalid value at 'location.latitude' (TYPE_DOUBLE), \"\""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+  recorded_at: Tue, 11 Nov 2025 14:48:27 GMT
+recorded_with: VCR 6.3.1

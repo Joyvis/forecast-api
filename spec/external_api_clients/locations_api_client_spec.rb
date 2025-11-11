@@ -9,7 +9,7 @@ RSpec.describe LocationsApiClient do
     context 'when address is present' do
       context 'when the address is a zipcode' do
         let(:address) { '11310-185' }
-        let(:location) { 'fetch_by_zipcode' }
+        let(:location) { 'location_fetch_by_zipcode' }
 
         it 'returns a location' do
           expect(subject.first).to be_present
@@ -20,7 +20,7 @@ RSpec.describe LocationsApiClient do
 
       context 'when the address is a full address' do
         let(:address) { 'R. Martim Afonso, 114 - São Vicente' }
-        let(:location) { 'fetch_by_address' }
+        let(:location) { 'location_fetch_by_address' }
 
         it 'returns a location' do
           expect(subject.first).to be_present
@@ -31,7 +31,7 @@ RSpec.describe LocationsApiClient do
 
       context 'when address is not found' do
         let(:address) { 'nao encontrada' }
-        let(:location) { 'fetch_not_found' }
+        let(:location) { 'location_fetch_not_found' }
 
         it 'returns a not found response' do
           expect(subject).to be_empty
@@ -41,7 +41,7 @@ RSpec.describe LocationsApiClient do
 
     context 'when address is not present' do
       let(:address) { nil }
-      let(:location) { 'fetch_address_not_present' }
+      let(:location) { 'location_fetch_address_not_present' }
 
       it 'raises LocationNotFoundError' do
         expect { subject }.to raise_error(LocationsApiClient::LocationNotFoundError)
